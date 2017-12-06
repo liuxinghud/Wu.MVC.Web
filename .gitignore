@@ -1,0 +1,8 @@
+/WuCore.web/bin
+/WuCore.Web/obj
+/packages
+/WuCore.Db.Service/obj
+/WuCore.Db.Service/bin
+/.vs
+/WuCore.Tests/obj
+/WuCore.Tests/bin
