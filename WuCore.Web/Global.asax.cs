@@ -3,6 +3,7 @@ using Castle.Windsor.Installer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -14,7 +15,7 @@ namespace WuCore
     {
         protected void Application_Start()
         {
-            Db.Service.DbCollectionFactory.InitDbFactory();
+            Db.Service.DbCollectionFactory.InitDbFactory(new Assembly[] { Assembly.GetExecutingAssembly() });
             ViewEngines.Engines.Clear();
             AreaRegistration.RegisterAllAreas();
             BootstrapContainer();

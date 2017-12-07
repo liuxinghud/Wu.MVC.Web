@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,15 @@ using WuCore.Web.Areas.Management.Models;
 namespace WuCore.Web.Areas.Management.Service
 {
 
-
+    
     public class UserService
     {
-
-        public TestRepository TestRepository { get; set; }
+        public IRepository<User> Repository { get; set; }
         public int GetUse()
         {
-            return TestRepository.Member<User>();
+           var us= Repository.List();
+            return 1;
+           // return TestRepository.Member<User>();
         }
     }
 }

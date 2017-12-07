@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using System.Web.Mvc;
+using WuCore.Db.Service.Repository;
 
 namespace WuCore.Db.Service
 {
@@ -21,7 +22,7 @@ namespace WuCore.Db.Service
                .LifestylePerWebRequest()
                .AllowMultipleMatches()
                 );
-
+            container.Register(Component.For(typeof(IRepository<>)).ImplementedBy(typeof(Repository<>)).LifestylePerWebRequest());
 
             //container.Register(Classes.FromThisAssembly().InSameNamespaceAs<Ioc>(true)
             //   .WithService.AllInterfaces()//.DefaultInterfaces()

@@ -97,7 +97,8 @@
     <Compile Include="IOC\Ioc.Db.cs" />
     <Compile Include="IOC\PersistenceFacility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\TestRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
