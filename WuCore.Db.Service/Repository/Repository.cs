@@ -153,13 +153,17 @@ namespace WuCore.Db.Service.Repository
         public T Save(T obj)
         {
 
+           // var x= session.Save(obj);
+          //  session.Flush();
+           // return x as T;
            // var b = persistentClass.GetDisplayName();
 
-            var a = persistentClass.GetCustomAttributes(typeof(DisplayNameAttribute), false);
+           // var a = persistentClass.GetCustomAttributes(typeof(DisplayNameAttribute), false);
 
-            object x = session.SaveAsync(entityName, obj);
+           object x = session.SaveAsync(entityName, obj);
+            session.FlushAsync();
            // Logger.Instance.WriteLog(new Entity.OperationLog { CreatedAt = DateTime.Now, OperationType = Enums.EnumManager.OperationType.Add, Message = $"新增{entityName}{persistentClass.GetProperty("Name")?.Name}", Operater = null, Level = Enums.EnumManager.LogLevelEnum.INFO });
-            return x as T;
+           return x as T;
         }
 
 
@@ -218,6 +222,11 @@ namespace WuCore.Db.Service.Repository
         {
             return await session.GetAsync(entityName, id) as T;
 
+        }
+
+        public T Get(Expression<Func<T, bool>> predicate)
+        {
+            return session.Query<T>().Where(predicate).SingleOrDefault<T>();
         }
 
         public IList<T> List()

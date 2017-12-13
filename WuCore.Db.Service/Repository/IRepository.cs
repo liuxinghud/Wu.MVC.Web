@@ -16,6 +16,7 @@ namespace WuCore.Db.Service.Repository
         bool Exists(object id);
         //object Get(object id);
         Task<T> Get(object id);
+        T Get(Expression<Func<T, bool>> predicate);
         IList<T> List();
         IList<T> List(System.Collections.IEnumerable identities);
         IList<T> List(int firstResult, int maxResults);

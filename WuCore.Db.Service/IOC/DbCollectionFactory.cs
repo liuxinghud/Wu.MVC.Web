@@ -32,10 +32,15 @@ namespace WuCore.Db.Service
                  // .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.Load("WuCore.Web")));
                   .Mappings(m =>
                    {
+                       if (!assembly.Contains(Assembly.GetExecutingAssembly()))
+                       {
+                           m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly());
+                       }
                        foreach (var item in assembly)
                        {
                            m.FluentMappings.AddFromAssembly(item);
                        }
+                      
                    });
                 return cfg.BuildSessionFactory();
             });

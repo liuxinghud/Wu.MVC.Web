@@ -29,7 +29,8 @@ namespace WuCore
             }
             else
             {
-                throw new KeyNotFoundException("注册区域失败:未找到AreaName，请确认路由是否配置。");
+                ViewLocationFormats = AreaViewLocationFormats = AreaMasterLocationFormats = AreaPartialViewLocationFormats = new string[] { "~/Areas/{2}/Views/{1}/{0}.cshtml", "~/Areas/{2}/Views/Shared/{0}.cshtml" };
+              //  throw new KeyNotFoundException("注册区域失败:未找到AreaName，请确认路由是否配置。");
             }
             return base.FindView(controllerContext, viewName, masterName, useCache);
         }

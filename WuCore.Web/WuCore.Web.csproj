@@ -177,9 +177,15 @@
     <Compile Include="Areas\Management\Controllers\AccountController.cs" />
     <Compile Include="Areas\Management\Controllers\HomeController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
-    <Compile Include="Areas\Management\Mapping\UserMap.cs" />
-    <Compile Include="Areas\Management\Models\User.cs" />
+    <Compile Include="Areas\Management\Mapping\ClassesMap.cs" />
+    <Compile Include="Areas\Management\Mapping\GradeMap.cs" />
+    <Compile Include="Areas\Management\Mapping\ManagementUserMap.cs" />
+    <Compile Include="Areas\Management\Models\Classes.cs" />
+    <Compile Include="Areas\Management\Models\ManagementUser.cs" />
     <Compile Include="Areas\Management\Service\UserService.cs" />
+    <Compile Include="Areas\Portal\Mapping\StudentMap.cs" />
+    <Compile Include="Areas\Portal\Models\Student.cs" />
+    <Compile Include="Areas\Management\Models\Grade.cs" />
     <Compile Include="Areas\Portal\PortalAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -208,7 +214,6 @@
     <Folder Include="App_GlobalResources\" />
     <Folder Include="Areas\Management\Views\Default\" />
     <Folder Include="Areas\Portal\Controllers\" />
-    <Folder Include="Areas\Portal\Models\" />
     <Folder Include="Areas\Portal\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
