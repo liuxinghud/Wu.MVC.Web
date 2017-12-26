@@ -1,7 +1,90 @@
 ﻿
 @{
+    var returnurl = Request["ReturnUrl"];
+
+
+    Layout = null;
     ViewBag.Title = "LogIn";
 }
 
-<h2>LogIn</h2>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/user/style.css" rel="stylesheet" />
+    <link href="~/Content/user/form-elements.css" rel="stylesheet" />
+</head>
+<body>
 
+    <div class="container center-vertical">
+        @*<div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>用户</strong> Login Form</h1>
+                    <div class="description">
+
+                    </div>
+                </div>
+            </div>*@
+        <div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box text-center">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>登录到系统</h3>
+                            <p>请输入用户名密码:</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" action="@Url.Action("LogIn","Account",new { Area="Management"})" method="post" class="login-form">
+                            <input type="hidden" name="ReturnUrl" value="@returnurl" />
+                            <div class="form-group">
+                                <label class="sr-only" for="form-username">Username</label>
+                                <input type="text" name="username" autocomplete="off" placeholder="Username..." class="form-username form-control" id="form-username">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-password">Password</label>
+                                <input type="password" name="password" autocomplete="off" placeholder="Password..." class="form-password form-control" id="form-password">
+                                
+                            </div>
+                            <div class="form-group">
+                                <label style="margin:0;font-size:12px;color:#ddd;">
+                                    <input type="checkbox" style="transform:scale(1.2);border-collapse:collapse; border:1px solid red;" name="name" value="true" />
+                                    记住密码
+                                </label>
+                            </div>
+                            <button type="submit" class="btn">Sign in!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+            <div class="col-sm-6 col-sm-offset-3 social-login">
+                <h3>...or login with:</h3>
+                <div class="social-login-buttons">
+                    <a class="btn btn-link-2" href="#">
+                        <i class="fa fa-facebook"></i> Facebook
+                    </a>
+                    <a class="btn btn-link-2" href="#">
+                        <i class="fa fa-twitter"></i> Twitter
+                    </a>
+                    <a class="btn btn-link-2" href="#">
+                        <i class="fa fa-google-plus"></i> Google Plus
+                    </a>
+                </div>
+            </div>
+        </div>*@
+        </div>
+    </div>
+     
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/user/jquery.backstretch.min.js"></script>
+    <script src="~/Content/user/scripts.js"></script>
+
+</body>
+</html>

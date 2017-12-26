@@ -11,7 +11,8 @@ namespace WuCore.Web.Areas.Management.Mapping
     {
         public ClassesMap()
         {
-          Table("wu_stu_stuclass");
+           Not.LazyLoad();
+            Table("wu_stu_stuclass");
             Id(m => m.Id);
             Map(m => m.Name);
             Map(m => m.Description);

@@ -14,11 +14,10 @@ namespace WuCore.Web.Areas.Portal.Mapping
         public StudentMap()
         {
             base.DiscriminatorValue(typeof(Student).FullName);
-            // DiscriminatorValue(2);
              Table("wu_account_user");
-            Map(m => m.SameTest);
             References(m => m.StuClass).Column("StuClass");
-          References(m => m.StuParent).Column("StuParent");
+           References(m => m.StuParent).Column("StuParent");
+           // HasOne(m => m.StuParent).ForeignKey("Id");
         }
 
     }

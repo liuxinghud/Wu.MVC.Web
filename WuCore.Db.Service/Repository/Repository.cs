@@ -88,7 +88,7 @@ namespace WuCore.Db.Service.Repository
         public void Delete(object obj)
         {
             session.DeleteAsync(entityName, obj);
-           // Logger.Instance.WriteLog(new Entity.OperationLog { CreatedAt = DateTime.Now, OperationType = Enums.EnumManager.OperationType.Deleted, Message = $"删除{entityName}{persistentClass.GetProperty("Name")?.Name}", Operater = null });
+            // Logger.Instance.WriteLog(new Entity.OperationLog { CreatedAt = DateTime.Now, OperationType = Enums.EnumManager.OperationType.Deleted, Message = $"删除{entityName}{persistentClass.GetProperty("Name")?.Name}", Operater = null });
         }
 
         public int DeleteById(object id)
@@ -153,24 +153,24 @@ namespace WuCore.Db.Service.Repository
         public T Save(T obj)
         {
 
-           // var x= session.Save(obj);
-          //  session.Flush();
-           // return x as T;
-           // var b = persistentClass.GetDisplayName();
+            // var x= session.Save(obj);
+            //  session.Flush();
+            // return x as T;
+            // var b = persistentClass.GetDisplayName();
 
-           // var a = persistentClass.GetCustomAttributes(typeof(DisplayNameAttribute), false);
+            // var a = persistentClass.GetCustomAttributes(typeof(DisplayNameAttribute), false);
 
-           object x = session.SaveAsync(entityName, obj);
+            object x = session.SaveAsync(entityName, obj);
             session.FlushAsync();
-           // Logger.Instance.WriteLog(new Entity.OperationLog { CreatedAt = DateTime.Now, OperationType = Enums.EnumManager.OperationType.Add, Message = $"新增{entityName}{persistentClass.GetProperty("Name")?.Name}", Operater = null, Level = Enums.EnumManager.LogLevelEnum.INFO });
-           return x as T;
+            // Logger.Instance.WriteLog(new Entity.OperationLog { CreatedAt = DateTime.Now, OperationType = Enums.EnumManager.OperationType.Add, Message = $"新增{entityName}{persistentClass.GetProperty("Name")?.Name}", Operater = null, Level = Enums.EnumManager.LogLevelEnum.INFO });
+            return x as T;
         }
 
 
         public void SaveOrUpdate(T obj)
         {
             session.SaveOrUpdateAsync(entityName, obj);
-           // Logger.Instance.WriteLog(new Entity.OperationLog { CreatedAt = DateTime.Now, OperationType = Enums.EnumManager.OperationType.Add, Message = $"新增{entityName}{persistentClass.GetProperty("Name")?.Name}", Operater = null });
+            // Logger.Instance.WriteLog(new Entity.OperationLog { CreatedAt = DateTime.Now, OperationType = Enums.EnumManager.OperationType.Add, Message = $"新增{entityName}{persistentClass.GetProperty("Name")?.Name}", Operater = null });
         }
 
         public void SetIdentifier(T obj, object id)
@@ -192,6 +192,7 @@ namespace WuCore.Db.Service.Repository
         public void Update(T obj)
         {
             session.UpdateAsync(entityName, obj);
+            session.FlushAsync();
         }
 
 
@@ -229,6 +230,10 @@ namespace WuCore.Db.Service.Repository
             return session.Query<T>().Where(predicate).SingleOrDefault<T>();
         }
 
+        public T GetById(object id)
+        {
+            return session.Get<T>(id);
+        }
         public IList<T> List()
         {
             return allQuery.GetExecutableQuery(session).List<T>();

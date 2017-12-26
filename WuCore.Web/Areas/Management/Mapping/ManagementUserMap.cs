@@ -13,11 +13,9 @@ namespace WuCore.Web.Areas.Management.Mapping
     {
         public ManagementUserMap()
         {
-            // DiscriminatorValue(1);
          base.DiscriminatorValue(typeof(ManagementUser).FullName);
             Table("wu_account_user");
-            Map(x => x.Child);
-            Map(m => m.SameTest);
+            HasMany(m => m.Children).KeyColumn("StuParent").Cascade.All();
         }
 
     }

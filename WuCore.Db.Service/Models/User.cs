@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WuCore.Db.Service.Models
 {
-    public class User: EntityBase<string>
+    public class User: EntityBase<long>
     {
 
         public virtual Type UserType { get; set; }

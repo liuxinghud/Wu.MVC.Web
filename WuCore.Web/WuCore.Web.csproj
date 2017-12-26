@@ -99,6 +99,14 @@
     <Reference Include="Remotion.Linq.EagerFetching, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.EagerFetching.2.1.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
@@ -148,6 +156,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\user\form-elements.css" />
+    <Content Include="Content\user\img\a.jpg" />
+    <Content Include="Content\user\img\b.jpg" />
+    <Content Include="Content\user\img\c.jpg" />
+    <Content Include="Content\user\jquery.backstretch.min.js" />
+    <Content Include="Content\user\scripts.js" />
+    <Content Include="Content\user\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Management\Views\Account\LogIn.cshtml" />
@@ -183,6 +198,7 @@
     <Compile Include="Areas\Management\Models\Classes.cs" />
     <Compile Include="Areas\Management\Models\ManagementUser.cs" />
     <Compile Include="Areas\Management\Service\UserService.cs" />
+    <Compile Include="Areas\Portal\Controllers\MemberShipController.cs" />
     <Compile Include="Areas\Portal\Mapping\StudentMap.cs" />
     <Compile Include="Areas\Portal\Models\Student.cs" />
     <Compile Include="Areas\Management\Models\Grade.cs" />
@@ -213,7 +229,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
     <Folder Include="Areas\Management\Views\Default\" />
-    <Folder Include="Areas\Portal\Controllers\" />
+    <Folder Include="Areas\Portal\Views\MemberShip\" />
     <Folder Include="Areas\Portal\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
